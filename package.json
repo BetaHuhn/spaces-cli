@@ -1,6 +1,6 @@
 {
   "name": "spaces-cli",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Quickly upload and download files from DigitalOcean Spaces.",
   "bin": "./src/index.js",
   "scripts": {
@@ -20,8 +20,10 @@
   "dependencies": {
     "aws-sdk": "^2.767.0",
     "commander": "^6.1.0",
+    "configstore": "^5.0.1",
     "dotenv": "^8.2.0",
-    "ora": "^5.1.0"
+    "ora": "^5.1.0",
+    "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
     "@betahuhn/eslint-config-node": "^0.1.0",

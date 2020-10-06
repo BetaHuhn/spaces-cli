@@ -21,16 +21,14 @@ npm install spaces-cli
 
 > Create your own DigitalOcean Space [here](https://m.do.co/c/779397b07aaa)
 
-To use the [spaces-cli](https://github.com/BetaHuhn/spaces-cli) you will need your access and secret key, generate them [here](https://cloud.digitalocean.com/account/api/tokens)
+On the first run [spaces-cli](https://github.com/BetaHuhn/spaces-cli) will ask you to input a few values:
 
-Then add the following environment variables:
-```
-REGION=DO server region
-SPACE=Name of your space
-ACCESS_KEY=Your access key
-SECRET_KEY=Your secret key
-DOMAIN=Your custom domain (optional)
-```
+- *Access Key* - Needs to be generated on your account page ([here](https://cloud.digitalocean.com/account/api/tokens))
+- *Secret Key* - Needs to be generated on your account page ([here](https://cloud.digitalocean.com/account/api/tokens))
+- *Space Region* - Region where your Space is located
+- *Space Name* - Name of your Space
+- *Custom Domain* - Your custom domain to access your space (optional)
+- *Default file permission* - private (default) / public, can be specified on each run with -a option (optional)
 
 ## 📚 Usage
 

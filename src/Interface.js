@@ -6,11 +6,11 @@ class S3Interface {
 	constructor(config) {
 		this.config = config
 
-		const spacesEndpoint = new AWS.Endpoint(`${ config.REGION }.digitaloceanspaces.com`)
+		const spacesEndpoint = new AWS.Endpoint(`${ config.region }.digitaloceanspaces.com`)
 		const s3 = new AWS.S3({
 			endpoint: spacesEndpoint,
-			accessKeyId: config.ACCESS_KEY,
-			secretAccessKey: config.SECRET_KEY
+			accessKeyId: config.access_key,
+			secretAccessKey: config.secret_key
 		})
 
 		this.s3 = s3
@@ -32,7 +32,7 @@ class S3Interface {
 
 			const options = {
 				Body: fileContent,
-				Bucket: this.config.SPACE,
+				Bucket: this.config.space,
 				Key: path,
 				ACL: permission === 'public' ? 'public-read' : undefined
 			}
@@ -55,7 +55,7 @@ class S3Interface {
 			const fileOutput = this._outputPath(fileKey, output)
 
 			const options = {
-				Bucket: this.config.SPACE,
+				Bucket: this.config.space,
 				Key: fileKey
 			}
 

@@ -1,14 +1,7 @@
 require('dotenv').config()
 const S3Interface = require('./Interface')
 const ora = require('ora')
-
-const config = {
-	REGION: process.env.REGION || 'fra1',
-	SPACE: process.env.SPACE || '',
-	ACCESS_KEY: process.env.ACCESS_KEY || '',
-	SECRET_KEY: process.env.SECRET_KEY || '',
-	DOMAIN: process.env.DOMAIN
-}
+const loadConfig = require('./Config')
 
 class Runner {
 	constructor(options) {
@@ -16,12 +9,15 @@ class Runner {
 	}
 
 	async run() {
+
+		const config = loadConfig()
+
 		const { upload, download, to, output, access } = this.options
 
 		if (upload) {
 			const fileName = upload
 			const s3Path = to ? to.replace(/^\/+/, '') : fileName
-			const permission = access || 'public'
+			const permission = access || config.permission
 
 			const spinner = ora(`Uploading ${ fileName } to ${ s3Path }`).start()
 
@@ -29,7 +25,7 @@ class Runner {
 				const s3 = new S3Interface(config)
 
 				const result = await s3.upload(fileName, s3Path, permission)
-				const location = config.DOMAIN !== undefined ? 'https://' + config.DOMAIN + result.Location.split('digitaloceanspaces.com')[1] : result.Location
+				const location = config.domain !== undefined ? 'https://' + config.domain + result.Location.split('digitaloceanspaces.com')[1] : result.Location
 
 				spinner.succeed(` Uploaded to: ${ location }`)
 
