@@ -14,6 +14,7 @@ program
 	.description('upload one or more files to DO spaces')
 	.option('-t, --to <path>', 'path to upload file to')
 	.option('-a, --access <type>', 'permissions public/private')
+	.option('-r, --recursive [type]', 'upload folder recursively')
 	.action((args, program) => {
 		const runner = new Runner(args, program)
 		runner.upload()

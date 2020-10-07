@@ -1,6 +1,5 @@
 const AWS = require('aws-sdk')
 const fs = require('fs')
-const url = require('url')
 
 class S3Interface {
 	constructor(config) {
@@ -19,11 +18,6 @@ class S3Interface {
 	_getLocalFile(fileName) {
 		const fileContent = fs.readFileSync(fileName)
 		return fileContent
-	}
-
-	_outputPath(fileKey, output) {
-		const getLastItem = (thePath) => thePath.substring(thePath.lastIndexOf('/') + 1)
-		return output ? output : getLastItem(fileKey)
 	}
 
 	async upload(file, path, permission) {
@@ -47,12 +41,8 @@ class S3Interface {
 		})
 	}
 
-	async download(s3Url, output) {
+	async download(fileKey, fileOutput) {
 		return new Promise((resolve, reject) => {
-			const parsed = url.parse(s3Url)
-			const fileKey = parsed.pathname.replace(/^\/+/, '')
-
-			const fileOutput = this._outputPath(fileKey, output)
 
 			const options = {
 				Bucket: this.config.space,
