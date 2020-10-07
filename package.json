@@ -1,6 +1,6 @@
 {
   "name": "spaces-cli",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Quickly upload and download files from DigitalOcean Spaces.",
   "bin": "./src/index.js",
   "scripts": {

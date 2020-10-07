@@ -30,6 +30,8 @@ On the first run [spaces-cli](https://github.com/BetaHuhn/spaces-cli) will ask y
 - *Custom Domain* - Your custom domain to access your space (optional)
 - *Default file permission* - private (default) / public, can be specified on each run with -a option (optional)
 
+The configuration will be stored in your home directory: `~/.config/configstore/spaces-cli.json`
+
 ## 📚 Usage
 
 ```shell
@@ -49,25 +51,51 @@ Options:
 
 ### Upload a file
 
+Command:
+
 `spaces-cli -u file.txt`
 
-With path:
+Output:
+
+`✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/file.txt`
+
+**Specify upload path:**
+
+Command:
 
 `spaces-cli -u file.txt -t /folder/name/file.txt`
 
+Output:
+
+`✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/folder/name/file.txt`
+
 ### Download a file
+
+Command:
 
 `spaces-cli -d http://space.fra1.digitaloceanspaces.com/folder/name/file.txt`
 
-With path:
+Output:
+
+`✔  Downloaded to: file.txt`
+
+**Specify output file:**
+
+Command:
 
 `spaces-cli -d http://space.fra1.digitaloceanspaces.com/folder/name/file.txt -o newFile.txt`
+
+Output:
+
+`✔  Downloaded to: newFile.txt`
 
 ## 💻 Development
 
 Issues and PRs are very welcome!
 
 Run `yarn lint` or `npm run lint` to lint the project.
+
+Please check out the [contributing guide](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## ❔ About
 
@@ -76,6 +104,8 @@ This library was developed by me ([@betahuhn](https://github.com/BetaHuhn)) in m
 [![Donate via PayPal](https://img.shields.io/badge/paypal-donate-009cde.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=394RTSBEEEFEE)
 
 Or use my referral link https://m.do.co/c/779397b07aaa to get 100$ Credit on DigitalOcean (I get 25$)
+
+**[spaces-cli](https://github.com/BetaHuhn/spaces-cli) is in no way affiliated with DigitalOcean.**
 
 ## License
 
