@@ -16,7 +16,19 @@
   "homepage": "https://github.com/BetaHuhn/spaces-cli#readme",
   "author": "Maximilian Schiller <schiller@mxis.ch>",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "digitalocean",
+    "digitalocean-spaces",
+    "cli",
+    "cli-tool",
+    "cloud-storage",
+    "asset-hosting",
+    "cdn",
+    "file-upload",
+    "s3-bucket",
+    "s3-storage",
+    "nodejs"
+  ],
   "dependencies": {
     "aws-sdk": "^2.767.0",
     "commander": "^6.1.0",
