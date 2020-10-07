@@ -38,7 +38,7 @@ The configuration will be stored in your home directory: `~/.config/configstore/
 Usage: spaces-cli [options] [command]
 
 Commands:
-  upload|up [options] <files...>  upload one or more files to DO spaces
+  upload|up [options] <files...>  upload file/s or directories to DO spaces
   download|down [options] <file>  download file from DO spaces
   config                          output current config
   help [command]                  display help for command
@@ -94,6 +94,22 @@ Output:
 ```shell
 ✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/folder/name/file.txt
 ✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/folder/name/file2.txt
+```
+
+**Upload directories**
+
+Command:
+
+```shell
+$ spaces-cli up /from/folder -t /to/folder -r
+```
+
+> Note: -r enables recursive upload, so all subfolders and files are uploaded too
+
+Output:
+
+```shell
+✔  All files uploaded to:  https:/space.fra1.digitaloceanspaces.com/to/folder/
 ```
 
 ### Download a file

@@ -11,7 +11,7 @@ program
 program
 	.command('upload <files...>')
 	.alias('up')
-	.description('upload one or more files to DO spaces')
+	.description('upload file/s or directories to DO spaces')
 	.option('-t, --to <path>', 'path to upload file to')
 	.option('-a, --access <type>', 'permissions public/private')
 	.option('-r, --recursive [type]', 'upload folder recursively')
