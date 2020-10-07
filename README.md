@@ -54,41 +54,57 @@ Options:
 
 Command:
 
-`spaces-cli -u file.txt`
+```shell
+$ spaces-cli -u file.txt
+```
 
 Output:
 
-`✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/file.txt`
+```shell
+✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/file.txt
+```
 
 **Specify upload path:**
 
 Command:
 
-`spaces-cli -u file.txt -t /folder/name/file.txt`
+```shell
+$ spaces-cli -u file.txt -t /folder/name/file.txt
+```
 
 Output:
 
-`✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/folder/name/file.txt`
+```shell
+✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/folder/name/file.txt
+```
 
 ### Download a file
 
 Command:
 
-`spaces-cli -d http://space.fra1.digitaloceanspaces.com/folder/name/file.txt`
+```shell
+$ spaces-cli -d http://space.fra1.digitaloceanspaces.com/folder/name/file.txt
+```
 
 Output:
 
-`✔  Downloaded to: file.txt`
+```shell
+✔  Downloaded to: file.txt
+```
 
 **Specify output file:**
 
 Command:
 
-`spaces-cli -d http://space.fra1.digitaloceanspaces.com/folder/name/file.txt -o newFile.txt`
+```shell
+$ spaces-cli -d http://space.fra1.digitaloceanspaces.com/folder/name/file.txt -o newFile.txt
+```
 
 Output:
 
-`✔  Downloaded to: newFile.txt`
+```shell
+✔  Downloaded to: newFile.txt
+```
 
 ## 💻 Development
 
