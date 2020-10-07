@@ -104,6 +104,12 @@ Command:
 $ spaces-cli down http://space.fra1.digitaloceanspaces.com/folder/name/file.txt
 ```
 
+or 
+
+```shell
+$ spaces-cli down /folder/name/file.txt
+```
+
 Output:
 
 ```shell

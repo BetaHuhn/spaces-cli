@@ -14,7 +14,8 @@ class Runner {
 		if (multiple && to) {
 			return (to.replace(/^\/+/, '').slice(-1) === '/' ? to.replace(/^\/+/, '') : to.replace(/^\/+/, '') + '/') + fileName
 		} else if (!multiple && to) {
-			return to.replace(/^\/+/, '')
+			const path = to.replace(/^\/+/, '')
+			return path.substring(path.lastIndexOf('/') + 1).includes('.') ? path : (path.replace(/\/?$/, '/') + fileName)
 		} else {
 			return fileName
 		}
