@@ -6,16 +6,35 @@ const Runner = require('../src/Runner')
 
 program
 	.version(packageJson.version, '-v, --version')
-	.option('-u, --upload <file>', 'uploads file to DO spaces')
+	.description('Quickly upload and download files from DigitalOcean Spaces.')
+
+program
+	.command('upload <files...>')
+	.alias('up')
+	.description('upload one or more files to DO spaces')
 	.option('-t, --to <path>', 'path to upload file to')
-	.option('-d, --download <fileUrl>', 'download file from DO spaces')
-	.option('-o, --output <path>', 'path/file name of downloaded file')
 	.option('-a, --access <type>', 'permissions public/private')
-	.option('-c, --config', 'output current config')
+	.action((args, program) => {
+		const runner = new Runner(args, program)
+		runner.upload()
+	})
 
-program.parse(process.argv);
+program
+	.command('download <file>')
+	.alias('down')
+	.description('download file from DO spaces')
+	.option('-o, --output <path>', 'path/file name of downloaded file')
+	.action((args, program) => {
+		const runner = new Runner(args, program)
+		runner.download()
+	})
 
-(async () => {
-	const runner = new Runner(program)
-	await runner.run()
-})()
+program
+	.command('config')
+	.description('output current config')
+	.action((args, program) => {
+		const runner = new Runner(args, program)
+		runner.outputConfig()
+	})
+
+program.parse(process.argv)

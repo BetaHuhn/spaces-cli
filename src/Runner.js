@@ -4,53 +4,69 @@ const ora = require('ora')
 const loadConfig = require('./Config')
 
 class Runner {
-	constructor(options) {
+	constructor(args, options) {
 		this.options = options || {}
+		this.args = args || []
+		this.config = loadConfig()
 	}
 
-	async run() {
+	_makeS3Location(fileName, multiple, to) {
+		if (multiple && to) {
+			return (to.replace(/^\/+/, '').slice(-1) === '/' ? to.replace(/^\/+/, '') : to.replace(/^\/+/, '') + '/') + fileName
+		} else if (!multiple && to) {
+			return to.replace(/^\/+/, '')
+		} else {
+			return fileName
+		}
+	}
 
-		const config = loadConfig()
+	async upload() {
+		const { to, access } = this.options
 
-		const { upload, download, to, output, access, config: outputConfig } = this.options
+		const args = this.args
+		const permission = access || this.config.permission
 
-		if (upload) {
-			const fileName = upload
-			const s3Path = to ? to.replace(/^\/+/, '') : fileName
-			const permission = access || config.permission
+		try {
+			const s3 = new S3Interface(this.config)
 
-			const spinner = ora(`Uploading ${ fileName } to ${ s3Path }`).start()
+			args.forEach(async (file) => {
+				const fileName = file
+				const s3Path = this._makeS3Location(fileName, args.length > 1, to)
 
-			try {
-				const s3 = new S3Interface(config)
-
+				const spinner = ora(`Uploading ${ fileName } to ${ s3Path }`).start()
 				const result = await s3.upload(fileName, s3Path, permission)
-				const location = config.domain !== undefined ? 'https://' + config.domain + result.Location.split('digitaloceanspaces.com')[1] : result.Location
+				const location = this.config.domain !== undefined ? 'https://' + this.config.domain + result.Location.split('digitaloceanspaces.com')[1] : result.Location
 
 				spinner.succeed(` Uploaded to: ${ location }`)
 
-			} catch (err) {
-				console.log(err)
-			}
+			})
 
-		} else if (download) {
-			const fileUrl = download
-
-			const spinner = ora(`Downloading from ${ fileUrl }`).start()
-
-			try {
-				const s3 = new S3Interface(config)
-
-				const result = await s3.download(fileUrl, output)
-
-				spinner.succeed(` Downloaded to: ${ result }`)
-
-			} catch (err) {
-				console.log(err)
-			}
-		} else if (outputConfig) {
-			console.log(config)
+		} catch (err) {
+			console.log(err)
 		}
+	}
+
+	async download() {
+		const { output } = this.options
+
+		const fileUrl = this.args
+
+		const spinner = ora(`Downloading from ${ fileUrl }`).start()
+
+		try {
+			const s3 = new S3Interface(this.config)
+
+			const result = await s3.download(fileUrl, output)
+
+			spinner.succeed(` Downloaded to: ${ result }`)
+
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
+	outputConfig() {
+		console.log(this.config)
 	}
 }
 
