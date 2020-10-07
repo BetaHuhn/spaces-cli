@@ -35,17 +35,20 @@ The configuration will be stored in your home directory: `~/.config/configstore/
 ## 📚 Usage
 
 ```shell
-Usage: spaces-cli [options]
+Usage: spaces-cli [options] [command]
+
+Commands:
+  upload|up [options] <files...>  upload one or more files to DO spaces
+  download|down [options] <file>  download file from DO spaces
+  config                          output current config
+  help [command]                  display help for command
 
 Options:
-  -v, --version             output the version number
-  -u, --upload <file>       uploads file to DO spaces
-  -t, --to <path>           path to upload file to
-  -d, --download <fileUrl>  download file from DO spaces
-  -o, --output <path>       path/file name of downloaded file
-  -a, --access <type>       permissions public/private
-  -c, --config              output current config
-  -h, --help                display help for command
+  -t, --to <path>                 path to upload file to
+  -o, --output <path>             path/file name of downloaded file
+  -a, --access <type>             set file permissions to public/private
+  -v, --version                   output the version number
+  -h, --help                      display help for command
 ```
 
 ## 🛠️ Examples
@@ -55,7 +58,7 @@ Options:
 Command:
 
 ```shell
-$ spaces-cli -u file.txt
+$ spaces-cli up file.txt
 ```
 
 Output:
@@ -69,7 +72,7 @@ Output:
 Command:
 
 ```shell
-$ spaces-cli -u file.txt -t /folder/name/file.txt
+$ spaces-cli up file.txt -t /folder/name/file.txt
 ```
 
 Output:
@@ -78,12 +81,27 @@ Output:
 ✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/folder/name/file.txt
 ```
 
+**Upload multiple files**
+
+Command:
+
+```shell
+$ spaces-cli up file.txt file2.txt -t /folder/name/
+```
+
+Output:
+
+```shell
+✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/folder/name/file.txt
+✔  Uploaded to: http://space.fra1.digitaloceanspaces.com/folder/name/file2.txt
+```
+
 ### Download a file
 
 Command:
 
 ```shell
-$ spaces-cli -d http://space.fra1.digitaloceanspaces.com/folder/name/file.txt
+$ spaces-cli down http://space.fra1.digitaloceanspaces.com/folder/name/file.txt
 ```
 
 Output:
@@ -97,7 +115,7 @@ Output:
 Command:
 
 ```shell
-$ spaces-cli -d http://space.fra1.digitaloceanspaces.com/folder/name/file.txt -o newFile.txt
+$ spaces-cli down http://space.fra1.digitaloceanspaces.com/folder/name/file.txt -o newFile.txt
 ```
 
 Output:
