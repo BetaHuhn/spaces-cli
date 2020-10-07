@@ -27,7 +27,11 @@ const loadConfig = function() {
 
 	if (!config.get('domain')) {
 		const domain = prompt('Custom Domain (optional): ')
-		config.set('domain', domain)
+		if (domain.length > 0) {
+			config.set('domain', domain)
+		} else {
+			config.set('domain', `${ config.get('space') }.${ config.get('region') }.digitaloceanspaces.com`)
+		}
 	}
 
 	if (!config.get('permission')) {
