@@ -44,6 +44,7 @@ Options:
   -d, --download <fileUrl>  download file from DO spaces
   -o, --output <path>       path/file name of downloaded file
   -a, --access <type>       permissions public/private
+  -c, --config              output current config
   -h, --help                display help for command
 ```
 

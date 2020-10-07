@@ -11,6 +11,7 @@ program
 	.option('-d, --download <fileUrl>', 'download file from DO spaces')
 	.option('-o, --output <path>', 'path/file name of downloaded file')
 	.option('-a, --access <type>', 'permissions public/private')
+	.option('-c, --config', 'output current config')
 
 program.parse(process.argv);
 

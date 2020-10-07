@@ -12,7 +12,7 @@ class Runner {
 
 		const config = loadConfig()
 
-		const { upload, download, to, output, access } = this.options
+		const { upload, download, to, output, access, config: outputConfig } = this.options
 
 		if (upload) {
 			const fileName = upload
@@ -48,6 +48,8 @@ class Runner {
 			} catch (err) {
 				console.log(err)
 			}
+		} else if (outputConfig) {
+			console.log(config)
 		}
 	}
 }
