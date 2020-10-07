@@ -19,7 +19,7 @@ Install [spaces-cli](https://github.com/BetaHuhn/spaces-cli) via npm:
 npm install spaces-cli
 ```
 
-> Create your own DigitalOcean Space [here](https://m.do.co/c/779397b07aaa)
+Create your own DigitalOcean Space [here](https://m.do.co/c/779397b07aaa).
 
 On the first run [spaces-cli](https://github.com/BetaHuhn/spaces-cli) will ask you to input a few values:
 
@@ -153,6 +153,8 @@ Issues and PRs are very welcome!
 Run `yarn lint` or `npm run lint` to lint the project.
 
 Please check out the [contributing guide](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). To see differences with previous versions refer to [CHANGELOG](./CHANGELOG.md).
 
 ## ❔ About
 
