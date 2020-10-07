@@ -8,9 +8,11 @@ const loadConfig = require('./Config')
 
 class Runner {
 	constructor(args, options) {
+		const config = loadConfig()
+		this.config = config.all
+		this.path = config.path
 		this.options = options || {}
 		this.args = args || []
-		this.config = loadConfig()
 	}
 
 	_isDir(path) {
@@ -123,6 +125,7 @@ class Runner {
 	}
 
 	outputConfig() {
+		console.log(`Config stored at: ${ this.path }`)
 		console.log(this.config)
 	}
 }

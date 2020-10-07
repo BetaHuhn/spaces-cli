@@ -1,8 +1,8 @@
 const Configstore = require('configstore')
-const prompt = require('prompt-sync')()
+const prompt = require('prompt-sync')({ sigint: false })
 const packageJson = require('../package.json')
 
-const config = new Configstore(packageJson.name, { sigint: true })
+const config = new Configstore(packageJson.name, {})
 
 const loadConfig = function() {
 	if (!config.get('access_key')) {
@@ -43,7 +43,7 @@ const loadConfig = function() {
 		}
 	}
 
-	return config.all
+	return config
 }
 
 module.exports = loadConfig
