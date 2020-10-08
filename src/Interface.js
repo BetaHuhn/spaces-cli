@@ -28,7 +28,7 @@ class S3Interface {
 				Body: fileContent,
 				Bucket: this.config.space,
 				Key: path,
-				ACL: permission === 'public' ? 'public-read' : undefined
+				ACL: permission === 'public' ? 'public-read' : 'private'
 			}
 
 			this.s3.upload(options, (err, data) => {
