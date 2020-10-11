@@ -43,6 +43,15 @@ const loadConfig = function() {
 		}
 	}
 
+	if (!config.get('directory')) {
+		const directory = prompt('Default upload directory (optional): ')
+		if (directory.length > 0) {
+			config.set('directory', directory)
+		} else {
+			config.set('directory', '/')
+		}
+	}
+
 	return config
 }
 

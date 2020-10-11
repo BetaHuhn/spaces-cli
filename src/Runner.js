@@ -19,14 +19,14 @@ class Runner {
 		return fs.lstatSync(path).isDirectory()
 	}
 
-	_makeS3Location(fileName, multiple, to) {
+	_makeS3Location(fileName, multiple, to, defaultPath) {
 		if (multiple && to) {
 			return (to.replace(/^\/+/, '').slice(-1) === '/' ? to.replace(/^\/+/, '') : to.replace(/^\/+/, '') + '/') + fileName
 		} else if (!multiple && to) {
 			const path = to.replace(/^\/+/, '')
 			return path.substring(path.lastIndexOf('/') + 1).includes('.') ? path : (path.replace(/\/?$/, '/') + fileName)
 		} else {
-			return fileName
+			return defaultPath.replace(/\/?$/, '/').replace(/^\/+/, '') + fileName
 		}
 	}
 
@@ -45,6 +45,7 @@ class Runner {
 
 		const args = this.args
 		const permission = access || this.config.permission
+		const defaultPath = this.config.directory
 		const recursiveFolder = !(recursive === 'false' || recursive === undefined)
 
 		try {
@@ -65,7 +66,7 @@ class Runner {
 						const stat = await fs.promises.stat(fullPath)
 
 						if (stat.isFile()) {
-							const s3Path = this._makeS3Location(fullPath, false, to)
+							const s3Path = this._makeS3Location(fullPath, false, to, defaultPath)
 
 							spinner.text = `Uploading ${ fullPath } to ${ s3Path }`
 							await s3.upload(fullPath, s3Path, permission)
@@ -85,7 +86,7 @@ class Runner {
 			} else {
 				args.forEach(async (file) => {
 					const fileName = file
-					const s3Path = this._makeS3Location(fileName, args.length > 1, to)
+					const s3Path = this._makeS3Location(fileName, args.length > 1, to, defaultPath)
 
 					const spinner = ora(`Uploading ${ fileName } to ${ s3Path }`).start()
 					const result = await s3.upload(fileName, s3Path, permission)
