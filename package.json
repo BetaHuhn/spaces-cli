@@ -38,7 +38,7 @@
     "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
-    "@betahuhn/eslint-config-node": "^0.1.0",
+    "@betahuhn/config": "^1.0.2",
     "eslint": "^7.9.0"
   }
 }
