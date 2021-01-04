@@ -1,3 +1,7 @@
+## [v0.6.1] - 2021-01-04
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v0.6.1) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v0.6.0...v0.6.1) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v0.6.1) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.1.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.1.tar.gz))
+
 ## [v0.6.0] - 2020-10-11
 ### Added
 - default upload directory option
