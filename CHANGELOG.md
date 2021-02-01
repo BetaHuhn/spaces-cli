@@ -1,3 +1,7 @@
+## [v0.6.5] - 2021-02-01
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v0.6.5) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v0.6.4...v0.6.5) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v0.6.5) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.5.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.5.tar.gz))
+
 ## [v0.6.4] - 2021-01-25
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v0.6.4) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v0.6.3...v0.6.4) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v0.6.4) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.4.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.4.tar.gz))
