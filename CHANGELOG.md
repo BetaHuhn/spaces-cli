@@ -1,3 +1,16 @@
+## [v0.6.8] - 2021-02-22
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v0.6.8) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v0.6.7...v0.6.8) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v0.6.8) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.8.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.8.tar.gz))
+
+### Dependency updates
+
+- [`c37ad11`](https://github.com/BetaHuhn/spaces-cli/commit/c37ad11)  Bump eslint from 7.19.0 to 7.20.0
+- [`16fc720`](https://github.com/BetaHuhn/spaces-cli/commit/16fc720)  Bump aws-sdk from 2.842.0 to 2.843.0
+- [`3118fde`](https://github.com/BetaHuhn/spaces-cli/commit/3118fde)  Bump aws-sdk from 2.843.0 to 2.844.0
+- [`3e2790c`](https://github.com/BetaHuhn/spaces-cli/commit/3e2790c)  Bump aws-sdk from 2.844.0 to 2.845.0
+- [`e3c3467`](https://github.com/BetaHuhn/spaces-cli/commit/e3c3467)  Bump aws-sdk from 2.845.0 to 2.846.0
+- [`c1ef325`](https://github.com/BetaHuhn/spaces-cli/commit/c1ef325)  Bump aws-sdk from 2.846.0 to 2.847.0
+
 ## [v0.6.7] - 2021-02-15
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v0.6.7) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v0.6.6...v0.6.7) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v0.6.7) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.7.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.7.tar.gz))
