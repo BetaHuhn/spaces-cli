@@ -15,7 +15,7 @@ program
 	.option('-t, --upload-to <path>', 'path to upload file to')
 	.option('-s, --space <name>', 'specify the name of your DO space')
 	.option('-r, --region <name>', 'specify the region of your space')
-	.option('-a, --access <permission>', 'file permission public/private')
+	.option('-a, --access <permission>', 'file permission public/private (default: private)')
 	.option('-i, --access-key-id <key>', 'space access key id')
 	.option('-k, --secret-access-key <key>', 'space secret key')
 	.option('-c, --custom-domain <name>', 'specify custom CDN endpoint')
@@ -28,7 +28,7 @@ program
 program
 	.command('download <file>')
 	.alias('down')
-	.description('download file from DO spaces')
+	.description('Download file from DO spaces')
 	.option('-o, --output <path>', 'path/file name of downloaded file')
 	.option('-s, --space <name>', 'specify the name of your DO space')
 	.option('-r, --region <name>', 'specify the region of your space')
@@ -53,7 +53,8 @@ program
 
 program
 	.command('setup')
-	.description('setup spaces-cli')
+	.description('Start interactive setup')
+	.option('-d, --debug', 'enable debug mode', false)
 	.action((args, options) => {
 		const runner = new Runner(args, options)
 		runner.setup()
