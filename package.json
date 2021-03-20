@@ -2,9 +2,13 @@
   "name": "spaces-cli",
   "version": "0.6.11",
   "description": "Quickly upload and download files from DigitalOcean Spaces.",
-  "bin": "./src/index.js",
+  "bin": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "lint": "eslint --ignore-path .gitignore ."
+    "lint": "eslint --ignore-path .gitignore .",
+    "build": "ncc build src/index.js -o dist"
   },
   "repository": {
     "type": "git",
@@ -39,6 +43,7 @@
   },
   "devDependencies": {
     "@betahuhn/config": "^1.0.2",
+    "@vercel/ncc": "^0.27.0",
     "eslint": "^7.9.0"
   }
 }
