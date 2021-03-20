@@ -1,133 +1,135 @@
-require('dotenv').config()
-const S3Interface = require('./Interface')
-const ora = require('ora')
-const url = require('url')
 const fs = require('fs')
 const path = require('path')
-const loadConfig = require('./Config')
+
+const S3Interface = require('./Interface')
+const Config = require('./Config')
+const Helpers = require('./Helpers')
 
 class Runner {
 	constructor(args, options) {
-		const config = loadConfig()
-		this.config = config.all
-		this.path = config.path
 		this.options = options || {}
 		this.args = args || []
-	}
-
-	_isDir(path) {
-		return fs.lstatSync(path).isDirectory()
-	}
-
-	_makeS3Location(fileName, multiple, to, defaultPath) {
-		if (multiple && to) {
-			return (to.replace(/^\/+/, '').slice(-1) === '/' ? to.replace(/^\/+/, '') : to.replace(/^\/+/, '') + '/') + fileName
-		} else if (!multiple && to) {
-			const path = to.replace(/^\/+/, '')
-			return path.substring(path.lastIndexOf('/') + 1).includes('.') ? path : (path.replace(/\/?$/, '/') + fileName)
-		} else {
-			return defaultPath.replace(/\/?$/, '/').replace(/^\/+/, '') + fileName
-		}
-	}
-
-	_makeOutputPath(fileKey, output) {
-		const getLastItem = (thePath) => thePath.substring(thePath.lastIndexOf('/') + 1)
-		return output ? output : getLastItem(fileKey)
-	}
-
-	_makeFileKey(s3Url) {
-		const parsed = url.parse(s3Url)
-		return parsed.pathname.replace(/^\/+/, '')
+		this.log = Helpers.logger(options.debug)
 	}
 
 	async upload() {
-		const { to, access, recursive } = this.options
-
-		const args = this.args
-		const permission = access || this.config.permission
-		const defaultPath = this.config.directory
-		const recursiveFolder = !(recursive === 'false' || recursive === undefined)
-
 		try {
-			const s3 = new S3Interface(this.config)
+			this.log.load('Loading config')
+			const config = await Config.load(this.options)
+			const args = this.args
 
-			if (this._isDir(args[0])) {
-				const folder = args[0]
+			this.log.debug(`Args: ${ args }`)
 
-				const spinner = ora(`Uploading all files from dir ${ folder } to ${ to || '/' }`).start()
+			this.log.changeText('Connecting to space')
+			const s3 = new S3Interface(config)
 
-				const uploadFolder = async (currentFolder) => {
+			const isFile = fs.lstatSync(args[0]).isFile()
+			this.log.debug(`is directory: ${ !isFile }`)
 
-					const files = await fs.promises.readdir(currentFolder)
+			if (isFile) {
+				await Helpers.forEach(args, async (localPath) => {
+					this.log.load()
 
-					files.forEach(async (file) => {
-						const fullPath = path.join(currentFolder, file)
+					const filename = path.basename(localPath)
+					const s3Path = Helpers.makeS3Path(config.uploadTo, filename, args.length > 1)
 
-						const stat = await fs.promises.stat(fullPath)
+					this.log.changeText(`Uploading ${ filename } to ${ s3Path }`)
+					const result = await s3.upload(localPath, s3Path, config.access)
 
-						if (stat.isFile()) {
-							const s3Path = this._makeS3Location(fullPath, false, to, defaultPath)
+					const outputPath = result.Location.split('digitaloceanspaces.com')[1]
+					const location = `https://${ config.domain }${ outputPath }`
+					this.log.succeed(`Uploaded to: ${ location }`)
 
-							spinner.text = `Uploading ${ fullPath } to ${ s3Path }`
-							await s3.upload(fullPath, s3Path, permission)
+				})
 
-						} else if (recursiveFolder) {
-							uploadFolder(fullPath)
-						} else {
-							spinner.info(`skipping dir \'${ file }\', use -r true to include all subfolders`)
-						}
-					})
-				}
+				return
+			}
 
-				uploadFolder(folder)
+			const folder = args[0]
+			const excludeParent = folder.endsWith('/')
+			this.log.debug(`exclude parent folder: ${ excludeParent }`)
 
-				const location = 'https://' + this.config.domain + '/' + this._makeS3Location('', true, to)
-				spinner.succeed(` All files uploaded to: ${ location }`)
-			} else {
-				args.forEach(async (file) => {
-					const fileName = file
-					const s3Path = this._makeS3Location(fileName, args.length > 1, to, defaultPath)
+			this.log.changeText(`Uploading all files from dir ${ folder } to ${ config.uploadTo }`)
 
-					const spinner = ora(`Uploading ${ fileName } to ${ s3Path }`).start()
-					const result = await s3.upload(fileName, s3Path, permission)
-					const location = this.config.domain !== undefined ? 'https://' + this.config.domain + result.Location.split('digitaloceanspaces.com')[1] : result.Location
+			const uploadFolder = async (currentFolder) => {
 
-					spinner.succeed(` Uploaded to: ${ location }`)
+				const files = await fs.promises.readdir(currentFolder)
 
+				this.log.debug(`Folder contains ${ files.length } file(s)`)
+
+				await Helpers.forEach(files, async (file) => {
+					const localPath = path.join(currentFolder, file)
+					const stat = await fs.promises.stat(localPath)
+
+					if (stat.isFile()) {
+						this.log.debug(`Creating upload path for ${ localPath }`)
+
+						const adjustedLocalPath = excludeParent ? localPath.replace(folder, '') : localPath
+						const s3Path = Helpers.makeS3Path(config.uploadTo, adjustedLocalPath, true)
+
+						this.log.changeText(`Uploading ${ localPath } to ${ s3Path }`)
+						await s3.upload(localPath, s3Path, config.access)
+
+					} else {
+						this.log.debug(`${ localPath } is a folder; recursive upload`)
+						await uploadFolder(localPath)
+					}
 				})
 			}
 
+			await uploadFolder(folder)
+
+			const outputPath = excludeParent ? config.uploadTo : path.join(config.uploadTo, folder)
+			const location = `https://${ config.domain }/${ Helpers.removeLeadingSlash(outputPath) }`
+
+			this.log.succeed(`All files uploaded to: ${ location }`)
+
 		} catch (err) {
 			if (err.code === 'ENOENT') {
-				return console.log('error: file/folder doesn\'t exist')
+				return this.log.fail('file/folder doesn\'t exist')
 			}
-			console.log(err)
+
+			this.log.fail(err.message)
+			this.log.debug(err)
 		}
 	}
 
 	async download() {
-		const { output } = this.options
-
-		const fileKey = this._makeFileKey(this.args)
-		const outputPath = this._makeOutputPath(fileKey, output)
-
-		const spinner = ora(`Downloading from ${ fileKey }`).start()
-
 		try {
-			const s3 = new S3Interface(this.config)
+			const args = this.args
+			this.log.debug(`Args: ${ args }`)
 
-			const result = await s3.download(fileKey, outputPath)
+			this.log.load('Loading config')
+			const config = await Config.load(this.options, args)
 
-			spinner.succeed(` Downloaded to: ${ result }`)
+			this.log.changeText('Connecting to space')
+			const s3 = new S3Interface(config)
+
+			this.log.changeText(`Downloading file ${ config.fileKey }`)
+			const result = await s3.download(config.fileKey, config.output)
+
+			this.log.succeed(`Downloaded to: ${ result }`)
 
 		} catch (err) {
-			console.log(err)
+			this.log.fail(err.message)
+			this.log.debug(err)
 		}
 	}
 
+	setup() {
+		console.log(`Starting setup...`)
+		const config = Config.setup()
+
+		console.log(`Config stored at: ${ config.path }`)
+		console.log(config.all)
+	}
+
 	outputConfig() {
-		console.log(`Config stored at: ${ this.path }`)
-		console.log(this.config)
+		this.log.load('Loading config')
+		const config = Config.load(this.options)
+
+		this.log.info(`Config stored at: ${ config.configPath }`)
+		this.log.text(config)
 	}
 }
 

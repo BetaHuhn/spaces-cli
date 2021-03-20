@@ -8,8 +8,8 @@ class S3Interface {
 		const spacesEndpoint = new AWS.Endpoint(`${ config.region }.digitaloceanspaces.com`)
 		const s3 = new AWS.S3({
 			endpoint: spacesEndpoint,
-			accessKeyId: config.access_key,
-			secretAccessKey: config.secret_key
+			accessKeyId: config.accessKeyId,
+			secretAccessKey: config.secretAccessKey
 		})
 
 		this.s3 = s3
@@ -20,14 +20,14 @@ class S3Interface {
 		return fileContent
 	}
 
-	async upload(file, path, permission) {
+	async upload(filePath, uploadTo, permission) {
 		return new Promise((resolve, reject) => {
-			const fileContent = this._getLocalFile(file)
+			const fileContent = fs.readFileSync(filePath)
 
 			const options = {
 				Body: fileContent,
 				Bucket: this.config.space,
-				Key: path,
+				Key: uploadTo,
 				ACL: permission === 'public' ? 'public-read' : 'private'
 			}
 
