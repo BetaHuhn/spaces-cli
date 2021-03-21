@@ -1,3 +1,23 @@
+## [v1.0.0] - 2021-03-21
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.0) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v0.6.11...v1.0.0) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.0) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.0.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.0.tar.gz))
+
+### New features
+
+- [`dd969e9`](https://github.com/BetaHuhn/spaces-cli/commit/dd969e9)  Add setup command
+
+### Dependency updates
+
+- [`6facdce`](https://github.com/BetaHuhn/spaces-cli/commit/6facdce)  Bump eslint from 7.21.0 to 7.22.0
+- [`b49a3f3`](https://github.com/BetaHuhn/spaces-cli/commit/b49a3f3)  Bump aws-sdk from 2.858.0 to 2.866.0
+- [`7cebb63`](https://github.com/BetaHuhn/spaces-cli/commit/7cebb63)  Bump ora from 5.3.0 to 5.4.0
+- [`a50ba3f`](https://github.com/BetaHuhn/spaces-cli/commit/a50ba3f)  Bump aws-sdk from 2.866.0 to 2.867.0
+- [`ef254a6`](https://github.com/BetaHuhn/spaces-cli/commit/ef254a6)  Update dependencies
+
+### Breaking changes
+
+- [`a533c95`](https://github.com/BetaHuhn/spaces-cli/commit/a533c95) ♻️ Refactor config/option handling
+
 ## [v0.6.11] - 2021-03-15
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v0.6.11) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v0.6.10...v0.6.11) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v0.6.11) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.11.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v0.6.11.tar.gz))
