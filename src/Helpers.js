@@ -40,7 +40,7 @@ const logger = (debugMode) => {
 	}
 
 	const warn = (text) => {
-		spinner.warn(text)
+		spinner.warn(` ${ text }`)
 	}
 
 	const succeed = (text) => {

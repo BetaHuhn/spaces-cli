@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
+const packageJson = require('../package.json')
 const S3Interface = require('./Interface')
 const Config = require('./Config')
 const Helpers = require('./Helpers')
@@ -37,7 +38,7 @@ class Runner {
 					const result = await s3.upload(localPath, s3Path, config.access)
 
 					const outputPath = result.Location.split('digitaloceanspaces.com')[1]
-					const location = `https://${ config.domain }${ outputPath }`
+					const location = `https://${ config.custom_domain }${ outputPath }`
 					this.log.succeed(`Uploaded to: ${ location }`)
 
 				})
@@ -80,7 +81,7 @@ class Runner {
 			await uploadFolder(folder)
 
 			const outputPath = excludeParent ? config.uploadTo : path.join(config.uploadTo, folder)
-			const location = `https://${ config.domain }/${ Helpers.removeLeadingSlash(outputPath) }`
+			const location = `https://${ config.custom_domain }/${ Helpers.removeLeadingSlash(outputPath) }`
 
 			this.log.succeed(`All files uploaded to: ${ location }`)
 
@@ -117,11 +118,16 @@ class Runner {
 	}
 
 	setup() {
-		console.log(`Starting setup...`)
-		const config = Config.setup()
+		this.log.info(`Setup spaces-cli v${ packageJson.version }`)
 
-		console.log(`Config stored at: ${ config.path }`)
-		console.log(config.all)
+		const configPath = Config.getConfigPath()
+		this.log.info(`Config will be stored at: ${ configPath }`)
+
+		const config = Config.setup(this.log)
+		this.log.debug(config.all)
+
+		this.log.succeed(`Setup complete!`)
+		this.log.info(`Run "spaces-cli help" to see all available commands.`)
 	}
 
 	outputConfig() {

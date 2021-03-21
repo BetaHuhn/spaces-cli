@@ -53,6 +53,7 @@ program
 
 program
 	.command('setup')
+	.alias('start')
 	.description('Start interactive setup')
 	.option('-d, --debug', 'enable debug mode', false)
 	.action((args, options) => {

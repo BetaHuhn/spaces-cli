@@ -1,5 +1,5 @@
 const Configstore = require('configstore')
-const prompt = require('prompt-sync')({ sigint: false })
+const prompt = require('prompt-sync')({ sigint: true })
 require('dotenv').config()
 
 const url = require('url')
@@ -23,6 +23,7 @@ const toCamel = (s) => {
 
 const load = function(options, inputUrl) {
 
+	// Get the value for the given key; order: command line args, env variable, stored value, default value or error
 	const getValue = (key, defaultVal) => {
 		const optionsKey = toCamel(key)
 		if (options[optionsKey]) return options[optionsKey]
@@ -46,6 +47,7 @@ const load = function(options, inputUrl) {
 		configPath: config.path
 	}
 
+	// On the download command parse the fileKey, space name and region from the given file url
 	if (inputUrl !== undefined) {
 		const parsed = url.parse(inputUrl)
 		finalConfig.fileKey = parsed.pathname.replace(/^\/+/, '')
@@ -64,6 +66,7 @@ const load = function(options, inputUrl) {
 		}
 	}
 
+	// If space wasn't found in file url or upload command was used, get it manually
 	if (finalConfig.space === undefined) {
 		const space = getValue('space')
 
@@ -77,40 +80,107 @@ const load = function(options, inputUrl) {
 		}
 	}
 
-	finalConfig.domain = getValue('custom_domain', `${ finalConfig.space }.${ finalConfig.region }.digitaloceanspaces.com`)
+	// Since default requires space and region, get custom_domain after all other options
+	finalConfig.custom_domain = getValue('custom_domain', `${ finalConfig.space }.${ finalConfig.region }.digitaloceanspaces.com`)
 
 	return finalConfig
 }
 
-const setup = function() {
-	const accessKey = prompt('Access Key: ')
-	config.set('access_key', accessKey)
+const setup = function(log) {
+	const getAndStoreInput = (params) => {
+		const { key, text, required, dft, allowed } = params
 
-	const domain = prompt('Custom Domain (optional): ')
-	if (domain.length > 0) {
-		config.set('domain', domain)
-	} else {
-		config.set('domain', `${ config.get('space') }.${ config.get('region') }.digitaloceanspaces.com`)
+		const inputText = `${ text } (${ required ? 'required' : 'optional' }): `
+		const input = prompt(inputText)
+
+		if (input) {
+			if (allowed && !allowed.includes(input)) {
+				log.warn(`Invalid input; Allowed values are ${ allowed.join('/') }`)
+				return getAndStoreInput(params)
+			}
+
+			return config.set(key, input)
+		}
+
+		if (required) return getAndStoreInput(params)
+
+		config.set(key, dft)
 	}
 
-	const permission = prompt('Default file permission, private or public (optional): ')
-	if (permission === 'public') {
-		config.set('permission', 'public')
-	} else {
-		config.set('permission', 'private')
+	const options = [
+		{
+			key: 'access_key_id',
+			text: 'Access Key ID',
+			required: true
+		},
+		{
+			key: 'secret_access_key',
+			text: 'Secret Access Key',
+			required: true
+		},
+		{
+			key: 'space',
+			text: 'Name of your Space',
+			required: true
+		},
+		{
+			key: 'region',
+			text: 'Region of your Space',
+			required: true
+		},
+		{
+			key: 'access',
+			text: 'Default file permissions, either private or public',
+			required: false,
+			dft: 'public',
+			allowed: [ 'public', 'private' ]
+		},
+		{
+			key: 'custom_domain',
+			text: 'Custom Domain/CDN endpoint',
+			required: false
+		},
+		{
+			key: 'upload_to',
+			text: 'Default upload directory',
+			required: false,
+			dft: '/'
+		}
+	]
+
+	console.log()
+
+	// If config already exists, confirm overwrite
+	if (Object.keys(config.all).length !== 0) {
+		log.warn(`Existing config found`)
+		const res = prompt(`Continue and overwrite it? (y/n): `)
+		if (res !== 'y' & res !== 'yes') {
+			log.fail(`Canceling setup`)
+			process.exit(0)
+		}
 	}
 
-	const directory = prompt('Default upload directory (optional): ')
-	if (directory.length > 0) {
-		config.set('directory', directory)
-	} else {
-		config.set('directory', '/')
+	// Go through all config options and ask user for input
+	options.forEach((item) => {
+		getAndStoreInput(item)
+	})
+
+	// Manually set default custom_domain
+	if (!config.custom_domain) {
+		config.set('custom_domain', `${ config.get('space') }.${ config.get('region') }.digitaloceanspaces.com`)
 	}
+
+	console.log()
 
 	return config
 }
 
+const getConfigPath = () => {
+	return config.path
+}
+
 module.exports = {
 	load,
-	setup
+	setup,
+	getConfigPath
 }
