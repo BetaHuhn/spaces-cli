@@ -7,7 +7,7 @@
     "dist"
   ],
   "scripts": {
-    "lint": "eslint --ignore-path .gitignore .",
+    "lint": "eslint ./src/",
     "build": "ncc build src/index.js -o dist"
   },
   "repository": {
