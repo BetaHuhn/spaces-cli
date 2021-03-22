@@ -1,3 +1,15 @@
+## [v1.0.2] - 2021-03-22
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.2) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.1...v1.0.2) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.2) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.2.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.2.tar.gz))
+
+### Bug fixes
+
+- [`471bdee`](https://github.com/BetaHuhn/spaces-cli/commit/471bdee)  Don&#x27;t set default custom_domain on setup command
+
+### Dependency updates
+
+- [`61568cd`](https://github.com/BetaHuhn/spaces-cli/commit/61568cd)  Bump commander from 7.1.0 to 7.2.0
+
 ## [v1.0.1] - 2021-03-21
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.1) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.0...v1.0.1) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.1) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.1.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.1.tar.gz))
