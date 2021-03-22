@@ -81,7 +81,7 @@ const load = function(options, inputUrl) {
 	}
 
 	// Since default requires space and region, get custom_domain after all other options
-	finalConfig.custom_domain = getValue('custom_domain', `${ finalConfig.space }.${ finalConfig.region }.digitaloceanspaces.com`)
+	finalConfig.domain = getValue('custom_domain', `${ finalConfig.space }.${ finalConfig.region }.digitaloceanspaces.com`)
 
 	return finalConfig
 }
@@ -164,11 +164,6 @@ const setup = function(log) {
 	options.forEach((item) => {
 		getAndStoreInput(item)
 	})
-
-	// Manually set default custom_domain
-	if (!config.custom_domain) {
-		config.set('custom_domain', `${ config.get('space') }.${ config.get('region') }.digitaloceanspaces.com`)
-	}
 
 	console.log()
 

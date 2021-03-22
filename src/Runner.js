@@ -21,7 +21,7 @@ class Runner {
 
 			this.log.debug(`Args: ${ args }`)
 
-			this.log.changeText('Connecting to space')
+			this.log.changeText(`Connecting to space ${ config.space } in region ${ config.region }`)
 			const s3 = new S3Interface(config)
 
 			const isFile = fs.lstatSync(args[0]).isFile()
@@ -38,7 +38,7 @@ class Runner {
 					const result = await s3.upload(localPath, s3Path, config.access)
 
 					const outputPath = result.Location.split('digitaloceanspaces.com')[1]
-					const location = `https://${ config.custom_domain }${ outputPath }`
+					const location = `https://${ config.domain }${ outputPath }`
 					this.log.succeed(`Uploaded to: ${ location }`)
 
 				})
@@ -81,7 +81,7 @@ class Runner {
 			await uploadFolder(folder)
 
 			const outputPath = excludeParent ? config.uploadTo : path.join(config.uploadTo, folder)
-			const location = `https://${ config.custom_domain }/${ Helpers.removeLeadingSlash(outputPath) }`
+			const location = `https://${ config.domain }/${ Helpers.removeLeadingSlash(outputPath) }`
 
 			this.log.succeed(`All files uploaded to: ${ location }`)
 
@@ -103,7 +103,7 @@ class Runner {
 			this.log.load('Loading config')
 			const config = await Config.load(this.options, args)
 
-			this.log.changeText('Connecting to space')
+			this.log.changeText(`Connecting to space ${ config.space } in region ${ config.region }`)
 			const s3 = new S3Interface(config)
 
 			this.log.changeText(`Downloading file ${ config.fileKey }`)
