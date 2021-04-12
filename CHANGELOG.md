@@ -1,3 +1,18 @@
+## [v1.0.5] - 2021-04-12
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.5) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.4...v1.0.5) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.5) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.5.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.5.tar.gz))
+
+### Dependency updates
+
+- [`876cbce`](https://github.com/BetaHuhn/spaces-cli/commit/876cbce)  Bump aws-sdk from 2.878.0 to 2.879.0
+- [`6b67a6c`](https://github.com/BetaHuhn/spaces-cli/commit/6b67a6c)  Bump aws-sdk from 2.879.0 to 2.880.0
+- [`d79dcda`](https://github.com/BetaHuhn/spaces-cli/commit/d79dcda)  Bump @vercel/ncc from 0.27.0 to 0.28.0
+- [`9edf562`](https://github.com/BetaHuhn/spaces-cli/commit/9edf562)  Bump @vercel/ncc from 0.28.0 to 0.28.1
+- [`802728f`](https://github.com/BetaHuhn/spaces-cli/commit/802728f)  Bump aws-sdk from 2.880.0 to 2.881.0
+- [`8b82fd1`](https://github.com/BetaHuhn/spaces-cli/commit/8b82fd1)  Bump aws-sdk from 2.881.0 to 2.882.0
+- [`d6aff96`](https://github.com/BetaHuhn/spaces-cli/commit/d6aff96)  Bump @vercel/ncc from 0.28.1 to 0.28.2
+- [`a3e6181`](https://github.com/BetaHuhn/spaces-cli/commit/a3e6181)  Bump aws-sdk from 2.882.0 to 2.883.0
+
 ## [v1.0.4] - 2021-04-05
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.4) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.3...v1.0.4) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.4) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.4.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.4.tar.gz))
