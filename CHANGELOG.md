@@ -1,3 +1,19 @@
+## [v1.0.14] - 2021-06-14
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.14) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.13...v1.0.14) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.14) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.14.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.14.tar.gz))
+
+### Dependency updates
+
+- [`7202f7b`](https://github.com/BetaHuhn/spaces-cli/commit/7202f7b)  Bump aws-sdk from 2.921.0 to 2.922.0
+- [`336090e`](https://github.com/BetaHuhn/spaces-cli/commit/336090e)  Bump eslint from 7.27.0 to 7.28.0
+- [`3386c29`](https://github.com/BetaHuhn/spaces-cli/commit/3386c29)  Bump aws-sdk from 2.922.0 to 2.923.0
+- [`4b368eb`](https://github.com/BetaHuhn/spaces-cli/commit/4b368eb)  Bump trim-newlines from 3.0.0 to 3.0.1
+- [`6934427`](https://github.com/BetaHuhn/spaces-cli/commit/6934427)  Bump glob-parent from 5.1.1 to 5.1.2
+- [`adf3daf`](https://github.com/BetaHuhn/spaces-cli/commit/adf3daf)  Bump aws-sdk from 2.923.0 to 2.924.0
+- [`9e57080`](https://github.com/BetaHuhn/spaces-cli/commit/9e57080)  Bump ora from 5.4.0 to 5.4.1
+- [`37000b2`](https://github.com/BetaHuhn/spaces-cli/commit/37000b2)  Bump aws-sdk from 2.924.0 to 2.925.0
+- [`41943cb`](https://github.com/BetaHuhn/spaces-cli/commit/41943cb)  Bump aws-sdk from 2.925.0 to 2.926.0
+
 ## [v1.0.13] - 2021-06-07
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.13) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.12...v1.0.13) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.13) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.13.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.13.tar.gz))
