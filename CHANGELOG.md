@@ -1,3 +1,14 @@
+## [v1.0.30] - 2021-10-04
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.30) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.29...v1.0.30) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.30) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.30.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.30.tar.gz))
+
+### Dependency updates
+
+- [`d0953cb`](https://github.com/BetaHuhn/spaces-cli/commit/d0953cb)  Bump aws-sdk from 2.994.0 to 2.995.0
+- [`eecdd67`](https://github.com/BetaHuhn/spaces-cli/commit/eecdd67)  Bump aws-sdk from 2.995.0 to 2.996.0
+- [`04c6a30`](https://github.com/BetaHuhn/spaces-cli/commit/04c6a30)  Bump aws-sdk from 2.996.0 to 2.997.0
+- [`25036a1`](https://github.com/BetaHuhn/spaces-cli/commit/25036a1)  Bump aws-sdk from 2.997.0 to 2.998.0
+
 ## [v1.0.29] - 2021-09-27
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.29) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.28...v1.0.29) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.29) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.29.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.29.tar.gz))
