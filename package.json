@@ -37,7 +37,7 @@
     "aws-sdk": "^2.868.0",
     "commander": "^7.1.0",
     "configstore": "^5.0.1",
-    "dotenv": "^8.2.0",
+    "dotenv": "^16.0.0",
     "ora": "^5.1.0",
     "prompt-sync": "^4.2.0"
   },
