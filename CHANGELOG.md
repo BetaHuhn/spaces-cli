@@ -1,3 +1,13 @@
+## [v1.0.33] - 2022-04-04
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.33) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.32...v1.0.33) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.33) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.33.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.33.tar.gz))
+
+### Dependency updates
+
+- [`660c3d8`](https://github.com/BetaHuhn/spaces-cli/commit/660c3d8)  Bump minimist from 1.2.5 to 1.2.6
+- [`9fece9b`](https://github.com/BetaHuhn/spaces-cli/commit/9fece9b)  Bump node-fetch from 2.6.2 to 2.6.7
+- [`3e555f3`](https://github.com/BetaHuhn/spaces-cli/commit/3e555f3)  Bump trim-off-newlines from 1.0.1 to 1.0.3
+
 ## [v1.0.32] - 2021-10-18
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.32) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.31...v1.0.32) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.32) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.32.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.32.tar.gz))
