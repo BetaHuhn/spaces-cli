@@ -1,3 +1,11 @@
+## [v1.0.34] - 2022-06-06
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.34) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.33...v1.0.34) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.34) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.34.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.34.tar.gz))
+
+### Dependency updates
+
+- [`42deb04`](https://github.com/BetaHuhn/spaces-cli/commit/42deb04)  Bump semver-regex from 3.1.3 to 3.1.4
+
 ## [v1.0.33] - 2022-04-04
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.33) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.32...v1.0.33) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.33) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.33.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.33.tar.gz))
