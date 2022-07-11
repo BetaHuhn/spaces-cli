@@ -1,3 +1,11 @@
+## [v1.0.35] - 2022-07-11
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.35) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.34...v1.0.35) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.35) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.35.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.35.tar.gz))
+
+### Dependency updates
+
+- [`1c48a36`](https://github.com/BetaHuhn/spaces-cli/commit/1c48a36)  Bump parse-url from 6.0.0 to 6.0.2
+
 ## [v1.0.34] - 2022-06-06
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.34) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.33...v1.0.34) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.34) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.34.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.34.tar.gz))
