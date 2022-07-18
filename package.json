@@ -35,7 +35,7 @@
   ],
   "dependencies": {
     "aws-sdk": "^2.868.0",
-    "commander": "^7.1.0",
+    "commander": "^9.4.0",
     "configstore": "^5.0.1",
     "dotenv": "^8.2.0",
     "ora": "^5.1.0",
