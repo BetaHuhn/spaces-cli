@@ -1,3 +1,11 @@
+## [v1.0.36] - 2022-11-14
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.36) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.35...v1.0.36) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.36) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.36.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.36.tar.gz))
+
+### Dependency updates
+
+- [`b19de22`](https://github.com/BetaHuhn/spaces-cli/commit/b19de22)  Bump minimatch from 3.0.4 to 3.1.2
+
 ## [v1.0.35] - 2022-07-11
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.35) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.34...v1.0.35) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.35) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.35.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.35.tar.gz))
