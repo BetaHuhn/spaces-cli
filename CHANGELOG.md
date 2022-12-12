@@ -1,3 +1,12 @@
+## [v1.0.37] - 2022-12-12
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.37) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.36...v1.0.37) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.37) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.37.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.37.tar.gz))
+
+### Dependency updates
+
+- [`0a18f06`](https://github.com/BetaHuhn/spaces-cli/commit/0a18f06)  Bump qs from 6.5.2 to 6.5.3
+- [`0dff339`](https://github.com/BetaHuhn/spaces-cli/commit/0dff339)  Bump decode-uri-component from 0.2.0 to 0.2.2
+
 ## [v1.0.36] - 2022-11-14
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.36) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.35...v1.0.36) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.36) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.36.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.36.tar.gz))
