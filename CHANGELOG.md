@@ -1,3 +1,11 @@
+## [v1.0.40] - 2023-07-17
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.40) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.39...v1.0.40) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.40) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.40.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.40.tar.gz))
+
+### Dependency updates
+
+- [`fa09f56`](https://github.com/BetaHuhn/spaces-cli/commit/fa09f56)  Bump semver from 5.7.1 to 5.7.2
+
 ## [v1.0.39] - 2023-04-17
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.39) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.38...v1.0.39) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.39) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.39.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.39.tar.gz))
