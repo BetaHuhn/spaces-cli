@@ -1,3 +1,11 @@
+## [v1.0.41] - 2023-07-24
+
+[Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.41) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.40...v1.0.41) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.41) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.41.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.41.tar.gz))
+
+### Dependency updates
+
+- [`0fc4ea9`](https://github.com/BetaHuhn/spaces-cli/commit/0fc4ea9)  Bump word-wrap from 1.2.3 to 1.2.4
+
 ## [v1.0.40] - 2023-07-17
 
 [Release notes](https://github.com/BetaHuhn/spaces-cli/releases/tag/v1.0.40) · [Compare](https://github.com/BetaHuhn/spaces-cli/compare/v1.0.39...v1.0.40) · [Tag](https://github.com/BetaHuhn/spaces-cli/tree/v1.0.40) · Archive ([zip](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.40.zip) · [tar.gz](https://github.com/BetaHuhn/spaces-cli/archive/v1.0.40.tar.gz))
