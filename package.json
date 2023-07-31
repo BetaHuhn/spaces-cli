@@ -38,7 +38,7 @@
     "commander": "^7.1.0",
     "configstore": "^5.0.1",
     "dotenv": "^8.2.0",
-    "ora": "^5.1.0",
+    "ora": "^7.0.0",
     "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
